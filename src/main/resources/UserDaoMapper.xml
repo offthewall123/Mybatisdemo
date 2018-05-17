@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xu.dao.UserDao">
+    <select id="findByUserName" parameterType="String" resultType="com.xu.Entity.User">
+      select * from users where userName=#{userName}
+    </select>
+
+    <insert id="insert" parameterType="com.xu.Entity.User">
+        insert into users(id,userName,passWord,user_sex,nick_name)
+        values (#{id},#{userName},#{passWord},#{user_sex},#{nick_name})
+    </insert>
+    <select id="countAll" resultType="int">
+        select count(*) c from users
+    </select>
+</mapper>
